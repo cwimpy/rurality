@@ -1,5 +1,5 @@
 Package: rurality
-Title: Rurality Classification and Scoring for U.S. Counties and ZIP Codes
+Title: Classification and Scoring of U.S. County and ZIP Code Rurality
 Version: 0.1.0
 Authors@R:
     person("Cameron", "Wimpy", , "cwimpy@astate.edu", role = c("aut", "cre"),

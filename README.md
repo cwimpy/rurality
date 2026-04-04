@@ -109,8 +109,8 @@ Wimpy, Cameron (2026). rurality: Rurality Classification and Scoring
 
 ## Data Sources
 
-- [USDA ERS Rural-Urban Continuum Codes, 2023](https://www.ers.usda.gov/data-products/rural-urban-continuum-codes/)
-- [USDA ERS Rural-Urban Commuting Area Codes, 2020](https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/)
+- [USDA ERS Rural-Urban Continuum Codes, 2023](https://www.ers.usda.gov/data-products/rural-urban-continuum-codes)
+- [USDA ERS Rural-Urban Commuting Area Codes, 2020](https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes)
 - [U.S. Census Bureau, American Community Survey 2022 5-Year Estimates](https://www.census.gov/programs-surveys/acs)
 - [U.S. Census Bureau, TIGER/Line Shapefiles 2020](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
 
