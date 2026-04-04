@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: "rurality: Rurality Classification and Scoring for U.S. Counties and ZIP Codes"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - given-names: Cameron
+    family-names: Wimpy
+    email: cwimpy@astate.edu
+    affiliation: "Arkansas State University"
+    orcid: "https://orcid.org/0000-0002-2049-5229"
+repository-code: "https://github.com/cwimpy/rurality"
+url: "https://rurality.app"
+abstract: >-
+  R package providing USDA Rural-Urban Continuum Codes (RUCC 2023),
+  Rural-Urban Commuting Area codes (RUCA 2020), and a composite rurality
+  score for all 3,235 U.S. counties. Includes lookup functions, merge
+  helpers, and pre-built datasets for research use.
+keywords:
+  - rurality
+  - rural-urban classification
+  - RUCA
+  - RUCC
+  - R package
+license: MIT
+version: 0.1.0
+date-released: "2026-04-03"
