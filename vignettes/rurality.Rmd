@@ -1,0 +1,158 @@
+---
+title: "Getting Started with rurality"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with rurality}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Overview
+
+The `rurality` package provides rurality classification data for all U.S.
+counties and ZIP codes. It bundles USDA Rural-Urban Continuum Codes (RUCC 2023),
+Rural-Urban Commuting Area codes (RUCA 2020), and a composite rurality score
+that combines multiple data sources into a single 0--100 measure.
+
+The package is designed for researchers who need to classify locations by
+rurality without manually downloading and reshaping USDA spreadsheets.
+
+```{r setup}
+library(rurality)
+library(dplyr)
+```
+
+## Looking up a county
+
+The simplest use case is looking up rurality data for a county by its 5-digit
+FIPS code:
+
+```{r}
+get_rurality("05031")
+```
+
+If you just need the score or the RUCC code:
+
+```{r}
+rurality_score("05031")
+get_rucc("05031")
+```
+
+Multiple FIPS codes work too:
+
+```{r}
+rurality_score(c("05031", "06037", "48453"))
+```
+
+## Looking up a ZIP code
+
+RUCA codes are available at the ZIP/ZCTA level:
+
+```{r}
+get_ruca("72401")
+get_ruca(c("72401", "90210", "59801"))
+```
+
+## Merging onto your data
+
+The most common research workflow is merging rurality data onto an existing
+dataset. The `add_rurality()` function handles this:
+
+```{r}
+my_data <- data.frame(
+  fips = c("05031", "06037", "48453", "30063"),
+  outcome = c(0.72, 0.41, 0.58, 0.89)
+)
+
+my_data |> add_rurality()
+```
+
+By default, three columns are added: `rurality_score`, `rurality_classification`,
+and `rucc_2023`. Use `vars = "all"` for the full set:
+
+```{r}
+my_data |> add_rurality(vars = "all") |> glimpse()
+```
+
+If your FIPS column has a different name, specify it:
+
+```{r}
+other_data <- data.frame(county_fips = c("05031", "06037"), y = 1:2)
+other_data |> add_rurality(fips_col = "county_fips")
+```
+
+## Classifying scores
+
+The `classify_rurality()` function converts numeric scores to labels:
+
+```{r}
+classify_rurality(c(10, 30, 50, 70, 90))
+```
+
+The thresholds are:
+
+| Score | Classification |
+|-------|---------------|
+| 80--100 | Very Rural |
+| 60--79  | Rural |
+| 40--59  | Mixed |
+| 20--39  | Suburban |
+| 0--19   | Urban |
+
+## Browsing the full dataset
+
+The `county_rurality` dataset contains all 3,235 U.S. counties:
+
+```{r}
+county_rurality
+```
+
+Filter to a state:
+
+```{r}
+county_rurality |>
+  filter(state_abbr == "AR") |>
+  select(county_name, rurality_score, rurality_classification, rucc_2023) |>
+  arrange(desc(rurality_score)) |>
+  head(10)
+```
+
+## Score distribution
+
+```{r, fig.width=6, fig.height=4}
+if (requireNamespace("ggplot2", quietly = TRUE)) {
+  ggplot2::ggplot(county_rurality, ggplot2::aes(x = rurality_score)) +
+    ggplot2::geom_histogram(binwidth = 5, fill = "#15803d", color = "white") +
+    ggplot2::labs(
+      title = "Distribution of Rurality Scores Across U.S. Counties",
+      x = "Rurality Score (0-100)",
+      y = "Number of Counties"
+    ) +
+    ggplot2::theme_minimal()
+}
+```
+
+## Methodology
+
+The composite rurality score is a weighted average of three components:
+
+| Component | Weight | Source |
+|-----------|--------|--------|
+| RUCC score | 55% | USDA Economic Research Service, 2023 |
+| Population density | 28% | Census ACS 2022 5-year estimates |
+| Distance to metro | 17% | Haversine distance to nearest metro area |
+
+For full details, see [rurality.app](https://rurality.app).
+
+## Citation
+
+```{r}
+citation("rurality")
+```

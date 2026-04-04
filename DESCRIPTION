@@ -22,9 +22,13 @@ Imports:
     stringr
 Suggests:
     ggplot2,
+    knitr,
+    rmarkdown,
     sf,
     tigris,
     testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
 LazyData: true
 URL: https://github.com/cwimpy/rurality, https://rurality.app
 BugReports: https://github.com/cwimpy/rurality/issues
