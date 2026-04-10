@@ -1,5 +1,7 @@
 # rurality
 
+[![CRAN status](https://www.r-pkg.org/badges/version/rurality)](https://CRAN.R-project.org/package=rurality)
+
 Rurality classification and scoring for U.S. counties and ZIP codes.
 
 Provides USDA Rural-Urban Continuum Codes (RUCC 2023), Rural-Urban Commuting Area codes (RUCA 2020), and a composite rurality score for all 3,235 U.S. counties. Built to make rurality data easy to use in research without manually downloading and merging USDA spreadsheets.
@@ -7,6 +9,12 @@ Provides USDA Rural-Urban Continuum Codes (RUCC 2023), Rural-Urban Commuting Are
 **Web app:** [rurality.app](https://rurality.app)
 
 ## Install
+
+```r
+install.packages("rurality")
+```
+
+Or install the development version from GitHub:
 
 ```r
 # install.packages("devtools")
