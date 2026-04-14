@@ -1,6 +1,6 @@
 Package: rurality
 Title: Classification and Scoring of U.S. County and ZIP Code Rurality
-Version: 0.1.0
+Version: 0.1.1
 Authors@R:
     person("Cameron", "Wimpy", , "cwimpy@astate.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-2049-5229"))

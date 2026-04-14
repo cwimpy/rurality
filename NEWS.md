@@ -1,3 +1,29 @@
+# rurality 0.1.1
+
+Data-correctness patch (2026-04-13).
+
+## Bug fixes
+
+- `county_rurality`: distances to the nearest large/medium/small metro
+  were computed against an incomplete metro list (15 large / 9 medium
+  / 5 small). Counties near any large metro outside the top 15 —
+  Denver, Minneapolis, Portland, Las Vegas, Charlotte, Indianapolis,
+  Cleveland, Cincinnati, Columbus, Kansas City, Austin, San Antonio,
+  Nashville, Jacksonville, Oklahoma City, Memphis, Louisville, and
+  others — were being measured to New York, Chicago, or Los Angeles
+  and classified as "Suburban" rather than "Urban". Example: Denver
+  County shipped with `dist_large_metro = 591`, classified Suburban.
+- Rebuilt with a full metro list shared with the rurality-app web
+  project (52 large / 57 medium / 36 small). After this patch the
+  major urban-core counties (Denver, Hennepin, Multnomah, Mecklenburg,
+  Cuyahoga, Marion-IN, and similar) classify as Urban.
+
+## Data
+
+- `county_rurality`: 3,235 rows, unchanged schema. Score distribution
+  (Urban / Suburban / Mixed / Rural / Very Rural):
+  184 / 908 / 669 / 976 / 498.
+
 # rurality 0.1.0
 
 Initial CRAN release (2026-04-10).
