@@ -4,3 +4,8 @@
 ^LICENSE\.md$
 ^cran-comments\.md$
 ^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^\.github$
+^docs$
+^pkgdown$
+^\.claude$

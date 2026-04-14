@@ -1,0 +1,28 @@
+url: https://cwimpy.github.io/rurality/
+
+template:
+  bootstrap: 5
+  bootswatch: cosmo
+
+navbar:
+  structure:
+    left:  [intro, reference, news]
+    right: [github]
+
+reference:
+  - title: Lookup
+    desc: Retrieve rurality scores, RUCC, and RUCA codes by FIPS or ZIP.
+    contents:
+      - get_rurality
+      - get_rucc
+      - get_ruca
+      - rurality_score
+      - classify_rurality
+  - title: Merge
+    desc: Attach rurality variables to an existing data frame.
+    contents:
+      - add_rurality
+  - title: Data
+    contents:
+      - county_rurality
+      - ruca_codes
