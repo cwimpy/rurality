@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this software in published work, please cite it as below."
+title: "rurality: Rurality Classification and Scoring for U.S. Counties and ZIP Codes"
+version: 0.1.0
+date-released: 2026-04-10
+authors:
+  - family-names: Wimpy
+    given-names: Cameron
+    email: cwimpy@astate.edu
+    orcid: "https://orcid.org/0000-0002-2049-5229"
+    affiliation: "Arkansas State University"
+repository-code: "https://github.com/cwimpy/rurality"
+url: "https://cwimpy.github.io/rurality/"
+license: MIT
+type: software
+keywords:
+  - rurality
+  - rural
+  - RUCC
+  - RUCA
+  - U.S. counties
+  - Census
+  - R
