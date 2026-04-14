@@ -178,7 +178,7 @@ library(dplyr)
 #> 
 #>     intersect, setdiff, setequal, union
 county_rurality |> filter(rurality_classification == "Very Rural")
-#> # A tibble: 535 × 24
+#> # A tibble: 498 × 24
 #>    fips  state_fips county_fips state_abbr county_name          pop_2020 acs_pop
 #>    <chr> <chr>      <chr>       <chr>      <chr>                   <dbl>   <dbl>
 #>  1 01035 01         035         AL         Conecuh County          11597   11576
@@ -191,7 +191,7 @@ county_rurality |> filter(rurality_classification == "Very Rural")
 #>  8 02068 02         068         AK         Denali Borough           1619    2101
 #>  9 02070 02         070         AK         Dillingham Census A…     4857    4854
 #> 10 02100 02         100         AK         Haines Borough           2080    2079
-#> # ℹ 525 more rows
+#> # ℹ 488 more rows
 #> # ℹ 17 more variables: land_area_sqmi <dbl>, pop_density <dbl>,
 #> #   rucc_2023 <int>, rucc_description <chr>, omb_designation <chr>, lat <dbl>,
 #> #   lng <dbl>, dist_large_metro <dbl>, dist_medium_metro <dbl>,

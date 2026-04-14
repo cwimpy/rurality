@@ -11,7 +11,7 @@ distance to metro areas, and a composite rurality score."><meta property="og:ima
 
     <a class="navbar-brand me-2" href="../index.html">rurality</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -177,7 +177,7 @@ distance to metro areas, and a composite rurality score.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     intersect, setdiff, setequal, union</span>
 <span class="r-in"><span><span class="va">county_rurality</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">rurality_classification</span> <span class="op">==</span> <span class="st">"Very Rural"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 535 × 24</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 498 × 24</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    fips  state_fips county_fips state_abbr county_name          pop_2020 acs_pop</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 01035 01         035         AL         Conecuh County          <span style="text-decoration: underline;">11</span>597   <span style="text-decoration: underline;">11</span>576</span>
@@ -190,7 +190,7 @@ distance to metro areas, and a composite rurality score.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 02068 02         068         AK         Denali Borough           <span style="text-decoration: underline;">1</span>619    <span style="text-decoration: underline;">2</span>101</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 02070 02         070         AK         Dillingham Census A…     <span style="text-decoration: underline;">4</span>857    <span style="text-decoration: underline;">4</span>854</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 02100 02         100         AK         Haines Borough           <span style="text-decoration: underline;">2</span>080    <span style="text-decoration: underline;">2</span>079</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 525 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 488 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 17 more variables: land_area_sqmi &lt;dbl&gt;, pop_density &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   rucc_2023 &lt;int&gt;, rucc_description &lt;chr&gt;, omb_designation &lt;chr&gt;, lat &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   lng &lt;dbl&gt;, dist_large_metro &lt;dbl&gt;, dist_medium_metro &lt;dbl&gt;,</span></span>

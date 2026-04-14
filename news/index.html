@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rurality</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,6 +30,21 @@
       <small>Source: <a href="https://github.com/cwimpy/rurality/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.1" id="rurality-011">rurality 0.1.1<a class="anchor" aria-label="anchor" href="#rurality-011"></a></h2>
+<p>Data-correctness patch (2026-04-13).</p>
+<div class="section level3">
+<h3 id="bug-fixes-0-1-1">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-1-1"></a></h3>
+<ul><li>
+<code>county_rurality</code>: distances to the nearest large/medium/small metro were computed against an incomplete metro list (15 large / 9 medium / 5 small). Counties near any large metro outside the top 15 — Denver, Minneapolis, Portland, Las Vegas, Charlotte, Indianapolis, Cleveland, Cincinnati, Columbus, Kansas City, Austin, San Antonio, Nashville, Jacksonville, Oklahoma City, Memphis, Louisville, and others — were being measured to New York, Chicago, or Los Angeles and classified as “Suburban” rather than “Urban”. Example: Denver County shipped with <code>dist_large_metro = 591</code>, classified Suburban.</li>
+<li>Rebuilt with a full metro list shared with the rurality-app web project (52 large / 57 medium / 36 small). After this patch the major urban-core counties (Denver, Hennepin, Multnomah, Mecklenburg, Cuyahoga, Marion-IN, and similar) classify as Urban.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="data-0-1-1">Data<a class="anchor" aria-label="anchor" href="#data-0-1-1"></a></h3>
+<ul><li>
+<code>county_rurality</code>: 3,235 rows, unchanged schema. Score distribution (Urban / Suburban / Mixed / Rural / Very Rural): 184 / 908 / 669 / 976 / 498.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="rurality-010">rurality 0.1.0<a class="anchor" aria-label="anchor" href="#rurality-010"></a></h2><p class="text-muted">CRAN release: 2026-04-10</p>
 <p>Initial CRAN release (2026-04-10).</p>

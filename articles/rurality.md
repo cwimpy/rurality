@@ -59,7 +59,7 @@ Multiple FIPS codes work too:
 ``` r
 rurality_score(c("05031", "06037", "48453"))
 #>  3  1  1 
-#> 33 15 19
+#> 33 15 15
 ```
 
 ## Looking up a ZIP code
@@ -98,7 +98,7 @@ my_data |> add_rurality()
 #>    fips outcome rurality_score rurality_classification rucc_2023
 #> 1 05031    0.72             33                Suburban         3
 #> 2 06037    0.41             15                   Urban         1
-#> 3 48453    0.58             19                   Urban         1
+#> 3 48453    0.58             15                   Urban         1
 #> 4 30063    0.89             45                   Mixed         3
 ```
 
@@ -126,12 +126,12 @@ my_data |> add_rurality(vars = "all") |> glimpse()
 #> $ lat                     <dbl> 35.83091, 34.32080, 30.33436, 47.03601
 #> $ lng                     <dbl> -90.63290, -118.22485, -97.78182, -113.92470
 #> $ dist_large_metro        <dbl> 57.407969, 18.590200, 5.183159, 395.555327
-#> $ dist_medium_metro       <dbl> 119.76309, 85.52511, 393.06562, 169.45019
+#> $ dist_medium_metro       <dbl> 119.76309, 85.52511, 54.17805, 169.45019
 #> $ dist_small_metro        <dbl> 4.076085, 377.962597, 88.541611, 11.787297
 #> $ rucc_score              <dbl> 28, 8, 8, 28
 #> $ density_score           <dbl> 45, 15, 22, 59
-#> $ distance_score          <dbl> 28, 36, 49, 78
-#> $ rurality_score          <dbl> 33, 15, 19, 45
+#> $ distance_score          <dbl> 28, 36, 27, 78
+#> $ rurality_score          <dbl> 33, 15, 15, 45
 #> $ rurality_classification <chr> "Suburban", "Urban", "Urban", "Mixed"
 #> $ median_income           <dbl> 55169, 83411, 92731, 66840
 #> $ median_age              <dbl> 34.4, 37.4, 35.1, 36.7
@@ -209,9 +209,9 @@ county_rurality |>
 #>    <chr>                   <dbl> <chr>                       <int>
 #>  1 Calhoun County             82 Very Rural                      9
 #>  2 Newton County              82 Very Rural                      9
-#>  3 Nevada County              81 Very Rural                      9
-#>  4 Searcy County              81 Very Rural                      9
-#>  5 Chicot County              80 Very Rural                      9
+#>  3 Searcy County              81 Very Rural                      9
+#>  4 Nevada County              80 Very Rural                      9
+#>  5 Chicot County              79 Rural                           9
 #>  6 Desha County               79 Rural                           9
 #>  7 Marion County              79 Rural                           9
 #>  8 Pike County                79 Rural                           9

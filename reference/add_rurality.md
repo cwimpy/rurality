@@ -39,7 +39,7 @@ add_rurality(my_data)
 #>    fips value rurality_score rurality_classification rucc_2023
 #> 1 05031     1             33                Suburban         3
 #> 2 06037     2             15                   Urban         1
-#> 3 48453     3             19                   Urban         1
+#> 3 48453     3             15                   Urban         1
 add_rurality(my_data, vars = "all")
 #>    fips value state_fips county_fips state_abbr        county_name pop_2020
 #> 1 05031     1         05         031         AR   Craighead County   111231
@@ -56,11 +56,11 @@ add_rurality(my_data, vars = "all")
 #>        lat        lng dist_large_metro dist_medium_metro dist_small_metro
 #> 1 35.83091  -90.63290        57.407969         119.76309         4.076085
 #> 2 34.32080 -118.22485        18.590200          85.52511       377.962597
-#> 3 30.33436  -97.78182         5.183159         393.06562        88.541611
+#> 3 30.33436  -97.78182         5.183159          54.17805        88.541611
 #>   rucc_score density_score distance_score rurality_score
 #> 1         28            45             28             33
 #> 2          8            15             36             15
-#> 3          8            22             49             19
+#> 3          8            22             27             15
 #>   rurality_classification median_income median_age
 #> 1                Suburban         55169       34.4
 #> 2                   Urban         83411       37.4
