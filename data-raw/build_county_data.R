@@ -96,47 +96,29 @@ acs_data <- get_acs(
 cat("ACS counties:", nrow(acs_data), "\n")
 
 # ── 4. Metro areas for distance calculation ─────────────────────────────────
-# Pulled from the app's metroAreas.js
-large_metros <- tribble(
-  ~name, ~lat, ~lng, ~pop,
-  "New York, NY", 40.7128, -74.0060, 19768458,
-  "Los Angeles, CA", 34.0522, -118.2437, 13214799,
-  "Chicago, IL", 41.8781, -87.6298, 9618502,
-  "Dallas-Fort Worth, TX", 32.7767, -96.7970, 7637387,
-  "Houston, TX", 29.7604, -95.3698, 7122240,
-  "Washington, DC", 38.9072, -77.0369, 6385162,
-  "Philadelphia, PA", 39.9526, -75.1652, 6245051,
-  "Miami, FL", 25.7617, -80.1918, 6138333,
-  "Atlanta, GA", 33.7490, -84.3880, 6089815,
-  "Boston, MA", 42.3601, -71.0589, 4941632,
-  "Phoenix, AZ", 33.4484, -112.0740, 4845832,
-  "San Francisco, CA", 37.7749, -122.4194, 4749008,
-  "Riverside, CA", 33.9533, -117.3962, 4600396,
-  "Detroit, MI", 42.3314, -83.0458, 4392041,
-  "Seattle, WA", 47.6062, -122.3321, 4018762
+# Canonical source: rurality-app/public/data/metros.json (mirrors
+# src/data/metroAreas.js in the web app). Reading it here keeps the R CSV
+# and the live web app scored against the same metro list.
+# To refresh: run `node scripts/export-metros.js` in the rurality-app repo.
+library(jsonlite)
+metros_path <- Sys.getenv(
+  "RURALITY_METROS_JSON",
+  unset = "~/Documents/GitHub/rurality-app/public/data/metros.json"
 )
-
-medium_metros <- tribble(
-  ~name, ~lat, ~lng, ~pop,
-  "Fresno, CA", 36.7378, -119.7871, 1008654,
-  "Omaha, NE", 41.2565, -95.9345, 967604,
-  "Albuquerque, NM", 35.0844, -106.6504, 916774,
-  "Albany, NY", 42.6526, -73.7562, 899262,
-  "Boise, ID", 43.6150, -116.2023, 764718,
-  "Colorado Springs, CO", 38.8339, -104.8214, 755105,
-  "Spokane, WA", 47.6588, -117.4260, 573493,
-  "Fayetteville, AR", 36.0626, -94.1574, 534904,
-  "Little Rock, AR", 34.7465, -92.2896, 742384
-)
-
-small_metros <- tribble(
-  ~name, ~lat, ~lng, ~pop,
-  "Missoula, MT", 46.8721, -113.9940, 119600,
-  "Billings, MT", 45.7833, -108.5007, 184167,
-  "Flagstaff, AZ", 35.1983, -111.6513, 145101,
-  "Jonesboro, AR", 35.8423, -90.7043, 135613,
-  "Ithaca, NY", 42.4440, -76.5019, 105740
-)
+if (!file.exists(metros_path)) {
+  stop(
+    "metros.json not found at ", metros_path,
+    ". Set RURALITY_METROS_JSON or run `node scripts/export-metros.js` in the rurality-app repo."
+  )
+}
+metros <- fromJSON(metros_path)
+large_metros  <- as_tibble(metros$large)
+medium_metros <- as_tibble(metros$medium)
+small_metros  <- as_tibble(metros$small)
+cat(sprintf(
+  "Loaded metros: large=%d medium=%d small=%d\n",
+  nrow(large_metros), nrow(medium_metros), nrow(small_metros)
+))
 
 # Haversine distance in miles
 haversine_miles <- function(lat1, lon1, lat2, lon2) {
