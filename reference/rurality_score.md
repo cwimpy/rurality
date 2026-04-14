@@ -23,8 +23,8 @@ A numeric vector of rurality scores, or NA for unmatched FIPS.
 ``` r
 rurality_score("05031")
 #>  3 
-#> 40 
+#> 33 
 rurality_score(c("05031", "06037", "48453"))
 #>  3  1  1 
-#> 40 17 23 
+#> 33 15 19 
 ```

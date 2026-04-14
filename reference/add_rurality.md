@@ -37,9 +37,9 @@ The input data frame with rurality columns appended.
 my_data <- data.frame(fips = c("05031", "06037", "48453"), value = 1:3)
 add_rurality(my_data)
 #>    fips value rurality_score rurality_classification rucc_2023
-#> 1 05031     1             40                   Mixed         3
-#> 2 06037     2             17                   Urban         1
-#> 3 48453     3             23                Suburban         1
+#> 1 05031     1             33                Suburban         3
+#> 2 06037     2             15                   Urban         1
+#> 3 48453     3             19                   Urban         1
 add_rurality(my_data, vars = "all")
 #>    fips value state_fips county_fips state_abbr        county_name pop_2020
 #> 1 05031     1         05         031         AR   Craighead County   111231
@@ -54,15 +54,15 @@ add_rurality(my_data, vars = "all")
 #> 2         Metro - Counties in metro areas of 1 million+    Metropolitan
 #> 3         Metro - Counties in metro areas of 1 million+    Metropolitan
 #>        lat        lng dist_large_metro dist_medium_metro dist_small_metro
-#> 1 35.83091  -90.63290         382.3440          119.7631         4.076085
-#> 2 34.32080 -118.22485          18.5902          188.6871       377.962597
-#> 3 30.33436  -97.78182         149.6074          441.7468       558.870426
+#> 1 35.83091  -90.63290        57.407969         119.76309         4.076085
+#> 2 34.32080 -118.22485        18.590200          85.52511       377.962597
+#> 3 30.33436  -97.78182         5.183159         393.06562        88.541611
 #>   rucc_score density_score distance_score rurality_score
-#> 1         28            45             69             40
-#> 2          8            15             51             17
-#> 3          8            22             75             23
+#> 1         28            45             28             33
+#> 2          8            15             36             15
+#> 3          8            22             49             19
 #>   rurality_classification median_income median_age
-#> 1                   Mixed         55169       34.4
+#> 1                Suburban         55169       34.4
 #> 2                   Urban         83411       37.4
-#> 3                Suburban         92731       35.1
+#> 3                   Urban         92731       35.1
 ```

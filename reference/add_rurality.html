@@ -71,9 +71,9 @@ classification. Use "all" for all variables.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">my_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>fips <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"05031"</span>, <span class="st">"06037"</span>, <span class="st">"48453"</span><span class="op">)</span>, value <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">add_rurality</span><span class="op">(</span><span class="va">my_data</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    fips value rurality_score rurality_classification rucc_2023</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 05031     1             40                   Mixed         3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 06037     2             17                   Urban         1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 48453     3             23                Suburban         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 05031     1             33                Suburban         3</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 06037     2             15                   Urban         1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 48453     3             19                   Urban         1</span>
 <span class="r-in"><span><span class="fu">add_rurality</span><span class="op">(</span><span class="va">my_data</span>, vars <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    fips value state_fips county_fips state_abbr        county_name pop_2020</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 05031     1         05         031         AR   Craighead County   111231</span>
@@ -88,17 +88,17 @@ classification. Use "all" for all variables.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2         Metro - Counties in metro areas of 1 million+    Metropolitan</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 3         Metro - Counties in metro areas of 1 million+    Metropolitan</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        lat        lng dist_large_metro dist_medium_metro dist_small_metro</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 35.83091  -90.63290         382.3440          119.7631         4.076085</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 34.32080 -118.22485          18.5902          188.6871       377.962597</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 30.33436  -97.78182         149.6074          441.7468       558.870426</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 35.83091  -90.63290        57.407969         119.76309         4.076085</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 34.32080 -118.22485        18.590200          85.52511       377.962597</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 30.33436  -97.78182         5.183159         393.06562        88.541611</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   rucc_score density_score distance_score rurality_score</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1         28            45             69             40</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          8            15             51             17</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          8            22             75             23</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1         28            45             28             33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2          8            15             36             15</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3          8            22             49             19</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   rurality_classification median_income median_age</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   Mixed         55169       34.4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                Suburban         55169       34.4</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                   Urban         83411       37.4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                Suburban         92731       35.1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                   Urban         92731       35.1</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

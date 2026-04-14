@@ -178,20 +178,20 @@ library(dplyr)
 #> 
 #>     intersect, setdiff, setequal, union
 county_rurality |> filter(rurality_classification == "Very Rural")
-#> # A tibble: 783 × 24
+#> # A tibble: 535 × 24
 #>    fips  state_fips county_fips state_abbr county_name          pop_2020 acs_pop
 #>    <chr> <chr>      <chr>       <chr>      <chr>                   <dbl>   <dbl>
-#>  1 01023 01         023         AL         Choctaw County          12665   12669
-#>  2 01025 01         025         AL         Clarke County           23087   23058
-#>  3 01027 01         027         AL         Clay County             14236   14209
-#>  4 01035 01         035         AL         Conecuh County          11597   11576
-#>  5 01093 01         093         AL         Marion County           29341   29203
-#>  6 01119 01         119         AL         Sumter County           12345   12196
-#>  7 01129 01         129         AL         Washington County       15388   15434
-#>  8 01131 01         131         AL         Wilcox County           10600   10441
-#>  9 02013 02         013         AK         Aleutians East Boro…     3420    3407
-#> 10 02016 02         016         AK         Aleutians West Cens…     5232    5219
-#> # ℹ 773 more rows
+#>  1 01035 01         035         AL         Conecuh County          11597   11576
+#>  2 02013 02         013         AK         Aleutians East Boro…     3420    3407
+#>  3 02016 02         016         AK         Aleutians West Cens…     5232    5219
+#>  4 02050 02         050         AK         Bethel Census Area      18666   18538
+#>  5 02060 02         060         AK         Bristol Bay Borough       844     854
+#>  6 02063 02         063         AK         Chugach Census Area      7102    7000
+#>  7 02066 02         066         AK         Copper River Census…     2617    2614
+#>  8 02068 02         068         AK         Denali Borough           1619    2101
+#>  9 02070 02         070         AK         Dillingham Census A…     4857    4854
+#> 10 02100 02         100         AK         Haines Borough           2080    2079
+#> # ℹ 525 more rows
 #> # ℹ 17 more variables: land_area_sqmi <dbl>, pop_density <dbl>,
 #> #   rucc_2023 <int>, rucc_description <chr>, omb_designation <chr>, lat <dbl>,
 #> #   lng <dbl>, dist_large_metro <dbl>, dist_medium_metro <dbl>,
