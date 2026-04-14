@@ -1,4 +1,4 @@
-# rurality
+# rurality <img src="man/figures/logo.png" align="right" height="139" alt="rurality package hex sticker" />
 
 [![CRAN status](https://www.r-pkg.org/badges/version/rurality)](https://CRAN.R-project.org/package=rurality)
 
