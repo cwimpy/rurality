@@ -67,3 +67,44 @@
 #' # Arkansas counties
 #' county_rurality |> filter(state_abbr == "AR")
 "county_rurality"
+
+#' County Crosswalk with Multiple Rurality Classification Schemes
+#'
+#' A county-level crosswalk combining the four major U.S. rurality
+#' classification schemes (USDA RUCC, USDA RUCA, NCHS Urban-Rural, and OMB
+#' Metropolitan/Micropolitan), along with Census urban/rural percentage and
+#' ACS 2022 5-year demographic covariates. Used by [rurality_spec()] to run
+#' specification curve analyses comparing schemes.
+#'
+#' @format A tibble with 3,143 rows and the following columns:
+#' \describe{
+#'   \item{fips}{5-digit county FIPS code (character)}
+#'   \item{state_fips}{2-digit state FIPS code (character)}
+#'   \item{county_fips}{3-digit county FIPS code (character)}
+#'   \item{county_name}{County name}
+#'   \item{state_abbr}{Two-letter state abbreviation}
+#'   \item{rucc_2023}{USDA Rural-Urban Continuum Code 2023 (1-9)}
+#'   \item{ruca_2020_county}{County-level RUCA 2020 (modal ZCTA code, 1-10)}
+#'   \item{nchs_2023}{NCHS Urban-Rural Classification 2023 (1-6)}
+#'   \item{omb_class}{OMB class: "metro", "micro", or "noncore"}
+#'   \item{pct_urban_2020}{Percent of county population in Census urban areas (2020)}
+#'   \item{pop_total}{ACS 2022 5-year total population}
+#'   \item{median_inc}{ACS 2022 5-year median household income}
+#'   \item{pct_ba_plus}{Percent of adults 25+ with bachelor's degree or higher}
+#'   \item{pct_nh_white}{Percent non-Hispanic white}
+#'   \item{log_inc}{log(median household income)}
+#'   \item{log_pop}{log(total population)}
+#'   \item{pop_density}{Population per square mile of land area}
+#' }
+#'
+#' @source
+#' \itemize{
+#'   \item USDA Economic Research Service: RUCC 2023, RUCA 2020
+#'   \item NCHS Urban-Rural Classification Scheme for Counties 2023
+#'   \item U.S. Office of Management and Budget, CBSA delineations
+#'   \item U.S. Census Bureau: 2020 Decennial (urban/rural), ACS 2022 5-year
+#' }
+#'
+#' @examples
+#' county_crosswalk
+"county_crosswalk"
