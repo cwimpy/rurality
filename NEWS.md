@@ -1,3 +1,5 @@
+# rurality 0.2.0.9000 (development)
+
 # rurality 0.2.0 (2026-04-22)
 
 Adds a specification-curve tool for comparing rurality classification
