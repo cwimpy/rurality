@@ -9,3 +9,5 @@ inst/doc/
 .claude/
 *.Rcheck/
 *.tar.gz
+/doc/
+/Meta/

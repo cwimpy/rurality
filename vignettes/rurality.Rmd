@@ -139,6 +139,14 @@ if (requireNamespace("ggplot2", quietly = TRUE)) {
 }
 ```
 
+## Comparing classification schemes
+
+If your work involves comparing rurality classification schemes — USDA
+RUCC, USDA RUCA, NCHS, and OMB — or testing how sensitive your findings
+are to the choice of scheme, see the companion vignette
+`vignette("spec-curve", package = "rurality")`. It covers `rurality_spec()`
+and the harmonized `county_crosswalk` dataset.
+
 ## Methodology
 
 The composite rurality score is a weighted average of three components:

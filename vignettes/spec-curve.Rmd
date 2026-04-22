@@ -1,0 +1,206 @@
+---
+title: "Comparing Rurality Classification Schemes with rurality_spec()"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Comparing Rurality Classification Schemes with rurality_spec()}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 4.5
+)
+set.seed(42)
+```
+
+## The problem
+
+Research on "rural" outcomes in the United States faces an awkward fact: there
+is no single definition of rural. At least four classification schemes are
+in widespread use, each maintained by a different agency with a different
+purpose:
+
+- **USDA RUCC** (Rural-Urban Continuum Codes, 2023) — nine categories built
+  from county-level metro adjacency and population.
+- **USDA RUCA** (Rural-Urban Commuting Area, 2020) — ten categories defined
+  at the ZCTA level from commuting flows, available here aggregated to
+  counties via modal ZCTA.
+- **NCHS** (Urban-Rural Classification Scheme for Counties, 2023) — six
+  categories developed by the National Center for Health Statistics for
+  health-outcome research.
+- **OMB** (Metropolitan/Micropolitan Statistical Areas) — a three-way
+  metro/micro/noncore split based on core urban populations and commuting.
+
+A researcher asking "does X differ between rural and urban counties?"
+implicitly picks one scheme, one way of collapsing it (ordinal vs. binary
+metro/nonmetro), and one set of covariates. Different choices often produce
+different answers, and the literature is full of conflicting claims about
+rural–urban gaps that are really claims about *which scheme was used*.
+
+`rurality_spec()` addresses this by running a **specification curve**: the
+same outcome model is refit across every reasonable combination of scheme,
+form, and covariate adjustment, and the distribution of estimates is
+reported.
+
+This is a *sensitivity* tool, not a model-selection tool. The point is not
+to find the specification with the largest coefficient or smallest p-value
+— that would be p-hacking. The point is to show how much your substantive
+conclusion depends on the (often arbitrary) choices an analyst must make.
+
+```{r setup}
+library(rurality)
+library(dplyr)
+```
+
+## The `county_crosswalk` dataset
+
+All four schemes, plus ACS 2022 covariates, are harmonized onto a single
+county backbone in `county_crosswalk`:
+
+```{r}
+county_crosswalk
+```
+
+The key columns:
+
+| Column | Scheme / source |
+|---|---|
+| `rucc_2023` | USDA RUCC (1–9) |
+| `ruca_2020_county` | USDA RUCA modal ZCTA (1–10) |
+| `nchs_2023` | NCHS (1–6) |
+| `omb_class` | OMB (`metro`, `micro`, `noncore`) |
+| `pct_urban_2020` | 2020 Census percent urban |
+| `pop_total`, `median_inc`, `pct_ba_plus`, `pct_nh_white` | ACS 2022 5-year |
+
+You can use this directly for any analysis that needs a single harmonized
+rurality crosswalk.
+
+## Running `rurality_spec()`
+
+Bring your own county-level outcome data, keyed by 5-digit FIPS. Here we
+simulate one for illustration:
+
+```{r}
+df <- county_crosswalk |>
+  transmute(
+    fips,
+    # Simulated outcome: mild negative association with RUCC + noise
+    y = 0.60 - 0.02 * rucc_2023 + rnorm(n(), 0, 0.10)
+  )
+
+head(df)
+```
+
+The basic call:
+
+```{r, fig.cap = "Specification curve across 24 models."}
+results <- rurality_spec(df, outcome = "y")
+```
+
+The returned tibble has one row per specification:
+
+```{r}
+results |>
+  select(scheme, form, covars, n, estimate, p.value, r.squared)
+```
+
+By default, `rurality_spec()` fits 4 schemes × 2 forms × 3 covariate
+sets = 24 OLS models. You can narrow the space if you only care about a
+subset:
+
+```{r}
+rurality_spec(
+  df,
+  outcome    = "y",
+  schemes    = c("rucc", "nchs"),
+  forms      = "ordinal",
+  covar_sets = c("minimal", "full"),
+  plot       = FALSE
+) |>
+  select(scheme, form, covars, estimate, p.value)
+```
+
+## Reading the specification curve
+
+The plot produced by default shows:
+
+- **x-axis**: specifications ordered by coefficient estimate.
+- **y-axis**: the coefficient on the rurality predictor, with a 95%
+  confidence interval as a vertical line.
+- **color**: blue if significant at p < 0.05, grey otherwise.
+- **facets**: one panel per outcome (when multiple outcomes are supplied).
+
+Three patterns to look for:
+
+1. **Robust effect** — the dots cluster tightly around a nonzero value
+   and most are significant. Your substantive finding does not depend on
+   analyst choices.
+2. **Fragile effect** — the dots span zero, some positive, some negative,
+   few significant. What looks like "an effect of rurality" in any single
+   model is largely an artifact of the scheme and cutpoint chosen.
+3. **Systematic structure** — estimates vary with the *type* of choice
+   (e.g., RUCA consistently larger than OMB, or binary forms larger than
+   ordinal). That is a substantive finding about measurement: different
+   schemes capture different things.
+
+## Multiple outcomes at once
+
+You can pass a character vector of outcome columns:
+
+```{r}
+df2 <- df |>
+  mutate(y2 = 0.40 + rnorm(n(), 0, 0.10))  # no real rurality signal
+
+results2 <- rurality_spec(df2, outcome = c("y", "y2"))
+```
+
+Each outcome gets its own facet in the plot, and each row in `results2`
+is tagged with its `outcome`.
+
+## Reporting results
+
+When writing up a spec-curve analysis, report the *distribution*, not the
+single "best" cell:
+
+```{r}
+results |>
+  summarise(
+    n_specs       = n(),
+    median_est    = median(estimate, na.rm = TRUE),
+    q25           = quantile(estimate, 0.25, na.rm = TRUE),
+    q75           = quantile(estimate, 0.75, na.rm = TRUE),
+    pct_signif    = mean(p.value < 0.05, na.rm = TRUE),
+    pct_same_sign = mean(sign(estimate) == sign(median(estimate, na.rm = TRUE)),
+                         na.rm = TRUE)
+  )
+```
+
+A defensible write-up might read: *"Across 24 specifications varying
+classification scheme (RUCC, RUCA, NCHS, OMB), functional form (ordinal,
+binary), and covariate set, the estimated association between rurality and
+Y had a median of −0.021 (IQR: −0.025 to −0.017); 88% of specifications
+were significant at p < 0.05 and all recovered the same sign."*
+
+## Further reading
+
+The specification-curve approach draws on two closely related literatures:
+
+- Simonsohn, Simmons, and Nelson (2020), *Nature Human Behaviour* — the
+  canonical reference for specification curve analysis.
+- Steegen, Tuerlinckx, Gelman, and Vanpaemel (2016), *Perspectives on
+  Psychological Science* — "Increasing Transparency Through a Multiverse
+  Analysis," the broader multiverse framework.
+
+## Caveats
+
+- `rurality_spec()` currently fits OLS only. For binary or count outcomes,
+  fit the specifications manually using `county_crosswalk` as the
+  backbone.
+- Standard errors are classical; clustered/robust SEs are not built in
+  yet.
+- The three covariate sets are opinionated defaults. Pass your own via the
+  `covariates` argument to append them to every specification.

@@ -1,9 +1,12 @@
+year <- sub("-.*", "", meta$Date %||% format(Sys.Date(), "%Y"))
+note <- sprintf("R package version %s", meta$Version)
+
 bibentry(
   bibtype  = "Manual",
   title    = "rurality: Rurality Classification and Scoring for U.S. Counties and ZIP Codes",
   author   = person("Cameron", "Wimpy", email = "cwimpy@astate.edu",
                      comment = c(ORCID = "0000-0002-2049-5229")),
-  year     = "2026",
-  url      = "https://rurality.app",
-  note     = "R package version 0.1.0"
+  year     = year,
+  url      = "https://github.com/cwimpy/rurality",
+  note     = note
 )

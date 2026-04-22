@@ -118,7 +118,7 @@ If you use this package in published research, please cite:
 
 ```
 Wimpy, Cameron (2026). rurality: Rurality Classification and Scoring
-  for U.S. Counties and ZIP Codes. R package version 0.1.0.
+  for U.S. Counties and ZIP Codes. R package version 0.2.0.
   https://github.com/cwimpy/rurality
 ```
 
@@ -128,6 +128,10 @@ Wimpy, Cameron (2026). rurality: Rurality Classification and Scoring
 - [USDA ERS Rural-Urban Commuting Area Codes, 2020](https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes)
 - [U.S. Census Bureau, American Community Survey 2022 5-Year Estimates](https://www.census.gov/programs-surveys/acs)
 - [U.S. Census Bureau, TIGER/Line Shapefiles 2020](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
+
+## Code of Conduct
+
+Please note that the rurality project is released with a [Contributor Code of Conduct](https://cwimpy.github.io/rurality/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 ## License
 

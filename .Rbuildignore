@@ -10,3 +10,7 @@
 ^pkgdown$
 ^\.claude$
 ^CITATION\.cff$
+^CODE_OF_CONDUCT\.md$
+^CONTRIBUTING\.md$
+^doc$
+^Meta$
