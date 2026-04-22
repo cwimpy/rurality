@@ -5,6 +5,7 @@
 [![R-CMD-check](https://github.com/cwimpy/rurality/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/cwimpy/rurality/actions/workflows/R-CMD-check.yaml)
 [![pkgdown](https://github.com/cwimpy/rurality/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/cwimpy/rurality/actions/workflows/pkgdown.yaml)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![DOI](https://zenodo.org/badge/1200719680.svg)](https://doi.org/10.5281/zenodo.19412636)
 <!-- badges: end -->
 
 **Documentation:** https://cwimpy.github.io/rurality/
