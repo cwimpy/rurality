@@ -22,7 +22,12 @@ reference:
     desc: Attach rurality variables to an existing data frame.
     contents:
       - add_rurality
+  - title: Specification curves
+    desc: Compare rurality classification schemes on a user-supplied outcome.
+    contents:
+      - rurality_spec
   - title: Data
     contents:
       - county_rurality
+      - county_crosswalk
       - ruca_codes
