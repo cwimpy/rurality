@@ -4,6 +4,13 @@ title: "rurality: Rurality Classification and Scoring for U.S. Counties and ZIP 
 version: 0.2.0
 date-released: 2026-04-22
 doi: 10.5281/zenodo.19412636
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.19697287
+    description: "Archived snapshot of version 0.2.0"
+  - type: doi
+    value: 10.5281/zenodo.19412637
+    description: "Archived snapshot of version 0.1.0"
 authors:
   - family-names: Wimpy
     given-names: Cameron
