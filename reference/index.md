@@ -22,9 +22,18 @@ Attach rurality variables to an existing data frame.
 - [`add_rurality()`](https://cwimpy.github.io/rurality/reference/add_rurality.md)
   : Merge Rurality Data onto a Data Frame
 
+## Specification curves
+
+Compare rurality classification schemes on a user-supplied outcome.
+
+- [`rurality_spec()`](https://cwimpy.github.io/rurality/reference/rurality_spec.md)
+  : Specification Curve Analysis Across Rurality Classification Schemes
+
 ## Data
 
 - [`county_rurality`](https://cwimpy.github.io/rurality/reference/county_rurality.md)
   : County-Level Rurality Data for the United States
+- [`county_crosswalk`](https://cwimpy.github.io/rurality/reference/county_crosswalk.md)
+  : County Crosswalk with Multiple Rurality Classification Schemes
 - [`ruca_codes`](https://cwimpy.github.io/rurality/reference/ruca_codes.md)
   : RUCA Code Data for U.S. ZIP Codes

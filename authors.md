@@ -11,13 +11,13 @@ Source:
 [`inst/CITATION`](https://github.com/cwimpy/rurality/blob/main/inst/CITATION)
 
 Wimpy C (2026). *rurality: Rurality Classification and Scoring for U.S.
-Counties and ZIP Codes*. R package version 0.1.0,
-<https://rurality.app>.
+Counties and ZIP Codes*. R package version 0.2.0.9000,
+<https://github.com/cwimpy/rurality>.
 
     @Manual{,
       title = {rurality: Rurality Classification and Scoring for U.S. Counties and ZIP Codes},
       author = {Cameron Wimpy},
       year = {2026},
-      url = {https://rurality.app},
-      note = {R package version 0.1.0},
+      url = {https://github.com/cwimpy/rurality},
+      note = {R package version 0.2.0.9000},
     }

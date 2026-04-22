@@ -3,7 +3,8 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   rurality: rurality.html
-last_built: 2026-04-14T04:41Z
+  spec-curve: spec-curve.html
+last_built: 2026-04-22T15:10Z
 urls:
   reference: https://cwimpy.github.io/rurality/reference
   article: https://cwimpy.github.io/rurality/articles

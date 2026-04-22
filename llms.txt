@@ -114,7 +114,7 @@ methodology](https://rurality.app) for details.
 If you use this package in published research, please cite:
 
     Wimpy, Cameron (2026). rurality: Rurality Classification and Scoring
-      for U.S. Counties and ZIP Codes. R package version 0.1.0.
+      for U.S. Counties and ZIP Codes. R package version 0.2.0.
       https://github.com/cwimpy/rurality
 
 ## Data Sources
@@ -127,6 +127,13 @@ If you use this package in published research, please cite:
   Estimates](https://www.census.gov/programs-surveys/acs)
 - [U.S. Census Bureau, TIGER/Line Shapefiles
   2020](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html)
+
+## Code of Conduct
+
+Please note that the rurality project is released with a [Contributor
+Code of
+Conduct](https://cwimpy.github.io/rurality/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
 
 ## License
 
@@ -156,10 +163,19 @@ Attach rurality variables to an existing data frame.
 - [`add_rurality()`](https://cwimpy.github.io/rurality/reference/add_rurality.md)
   : Merge Rurality Data onto a Data Frame
 
+## Specification curves
+
+Compare rurality classification schemes on a user-supplied outcome.
+
+- [`rurality_spec()`](https://cwimpy.github.io/rurality/reference/rurality_spec.md)
+  : Specification Curve Analysis Across Rurality Classification Schemes
+
 ## Data
 
 - [`county_rurality`](https://cwimpy.github.io/rurality/reference/county_rurality.md)
   : County-Level Rurality Data for the United States
+- [`county_crosswalk`](https://cwimpy.github.io/rurality/reference/county_crosswalk.md)
+  : County Crosswalk with Multiple Rurality Classification Schemes
 - [`ruca_codes`](https://cwimpy.github.io/rurality/reference/ruca_codes.md)
   : RUCA Code Data for U.S. ZIP Codes
 
@@ -169,3 +185,5 @@ Attach rurality variables to an existing data frame.
 
 - [Getting Started with
   rurality](https://cwimpy.github.io/rurality/articles/rurality.md):
+- [Comparing Rurality Classification Schemes with
+  rurality_spec()](https://cwimpy.github.io/rurality/articles/spec-curve.md):

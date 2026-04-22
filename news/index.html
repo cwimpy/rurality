@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">rurality</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,7 +31,24 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="0.1.1" id="rurality-011">rurality 0.1.1<a class="anchor" aria-label="anchor" href="#rurality-011"></a></h2>
+<h2 class="pkg-version" data-toc-text="0.2.0.9000" id="rurality-0209000-development">rurality 0.2.0.9000 (development)<a class="anchor" aria-label="anchor" href="#rurality-0209000-development"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.0" id="rurality-020-2026-04-22">rurality 0.2.0 (2026-04-22)<a class="anchor" aria-label="anchor" href="#rurality-020-2026-04-22"></a></h2>
+<p>Adds a specification-curve tool for comparing rurality classification schemes on user-supplied county-level outcomes, plus a companion <code>spec-curve</code> vignette.</p>
+<div class="section level3">
+<h3 id="new-features-0-2-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-2-0"></a></h3>
+<ul><li>
+<code><a href="../reference/rurality_spec.html">rurality_spec()</a></code>: fits OLS models across four schemes (RUCC, RUCA, NCHS, OMB), two functional forms (ordinal / binary metro-nonmetro), and three built-in covariate sets, returning a tidy data frame and (by default) a specification-curve plot.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="data-0-2-0">Data<a class="anchor" aria-label="anchor" href="#data-0-2-0"></a></h3>
+<ul><li>
+<code>county_crosswalk</code>: new 3,143-county crosswalk harmonising RUCC 2023, RUCA 2020 (modal ZCTA), NCHS 2023, OMB metro/micro/noncore, Census 2020 percent urban, and ACS 2022 5-year demographics. Used as the backbone for <code><a href="../reference/rurality_spec.html">rurality_spec()</a></code>.</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.1" id="rurality-011">rurality 0.1.1<a class="anchor" aria-label="anchor" href="#rurality-011"></a></h2><p class="text-muted">CRAN release: 2026-04-15</p>
 <p>Data-correctness patch (2026-04-13).</p>
 <div class="section level3">
 <h3 id="bug-fixes-0-1-1">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-1-1"></a></h3>

@@ -238,6 +238,16 @@ if (requireNamespace("ggplot2", quietly = TRUE)) {
 
 ![](rurality_files/figure-html/unnamed-chunk-12-1.png)
 
+## Comparing classification schemes
+
+If your work involves comparing rurality classification schemes — USDA
+RUCC, USDA RUCA, NCHS, and OMB — or testing how sensitive your findings
+are to the choice of scheme, see the companion vignette
+[`vignette("spec-curve", package = "rurality")`](https://cwimpy.github.io/rurality/articles/spec-curve.md).
+It covers
+[`rurality_spec()`](https://cwimpy.github.io/rurality/reference/rurality_spec.md)
+and the harmonized `county_crosswalk` dataset.
+
 ## Methodology
 
 The composite rurality score is a weighted average of three components:
@@ -257,8 +267,8 @@ citation("rurality")
 #> To cite package 'rurality' in publications use:
 #> 
 #>   Wimpy C (2026). _rurality: Rurality Classification and Scoring for
-#>   U.S. Counties and ZIP Codes_. R package version 0.1.0,
-#>   <https://rurality.app>.
+#>   U.S. Counties and ZIP Codes_. R package version 0.2.0.9000,
+#>   <https://github.com/cwimpy/rurality>.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -266,7 +276,7 @@ citation("rurality")
 #>     title = {rurality: Rurality Classification and Scoring for U.S. Counties and ZIP Codes},
 #>     author = {Cameron Wimpy},
 #>     year = {2026},
-#>     url = {https://rurality.app},
-#>     note = {R package version 0.1.0},
+#>     url = {https://github.com/cwimpy/rurality},
+#>     note = {R package version 0.2.0.9000},
 #>   }
 ```

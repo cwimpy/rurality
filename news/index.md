@@ -1,6 +1,32 @@
 # Changelog
 
+## rurality 0.2.0.9000 (development)
+
+## rurality 0.2.0 (2026-04-22)
+
+Adds a specification-curve tool for comparing rurality classification
+schemes on user-supplied county-level outcomes, plus a companion
+`spec-curve` vignette.
+
+### New features
+
+- [`rurality_spec()`](https://cwimpy.github.io/rurality/reference/rurality_spec.md):
+  fits OLS models across four schemes (RUCC, RUCA, NCHS, OMB), two
+  functional forms (ordinal / binary metro-nonmetro), and three built-in
+  covariate sets, returning a tidy data frame and (by default) a
+  specification-curve plot.
+
+### Data
+
+- `county_crosswalk`: new 3,143-county crosswalk harmonising RUCC 2023,
+  RUCA 2020 (modal ZCTA), NCHS 2023, OMB metro/micro/noncore, Census
+  2020 percent urban, and ACS 2022 5-year demographics. Used as the
+  backbone for
+  [`rurality_spec()`](https://cwimpy.github.io/rurality/reference/rurality_spec.md).
+
 ## rurality 0.1.1
+
+CRAN release: 2026-04-15
 
 Data-correctness patch (2026-04-13).
 
